@@ -1,18 +1,18 @@
+Tu as bien demandé la météo ?
 
-Vous avez bien demandé la météo ?
-
-	Vous voulez savoir la météo de :
+	Tu veux savoir la météo de :
 		Aujourd’hui (Regarde pas la fenêtre et tu verras quel temps il fait dehors flemmard (faire patienter le lecteur et lui donner la réponse attendu)
 		Demain(Proposer à l’utilisateur si il veut savoir si il va y avoir de la pluie demain si oui lui dire de faire la danse de la pluie et il l’aura sinon lui donner le temps)
 		De la semaine(D’après toi il va faire quoi comme temps dans un désert petit génie ? (faire patienter le lecteur et lui donner une réponse détaillée)
 
 
-	Vous voulez savoir quelle température il va faire :
-		Ce matin :
-		Cette après-midi :
-		Ce soir :
+	Tu veux savoir quelle température il va faire :
+		Ce matin : Donner la température
+		Cette après-midi : Donner la température et : je te déconseille de marcher pendant ce créneau horaire sinon tu vas pas pouvoir supporter la chaleur, je suis quand même là pour t’aider.
+		Ce soir : Tu vas dormir dansa ton cockpit réfrigéré pendant la nuit ça te sert à rien de savoir la température
 		Demain : donner matin journée soirée
 		Semaine : donner prévision
 
 
-	Voulez vous savoir si il va y avoir une tempête de sable dans les heures à venir ?
+	Tu veux savoir si il va y avoir une tempête de sable dans les heures à venir ?
+			Lui donner la prochaine tempête de sable dans x jours et l’ajouter dans la section rappel de l’agenda
