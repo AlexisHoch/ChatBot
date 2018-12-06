@@ -20,15 +20,17 @@ Survie:
 
 		-Maintenance
 		    Tu parles de quel automate là?
-				-QrX16													-CH2019
-			Il lui faut une maintenance	demain 						Lequel?
-			dernier delai, sinon il va tomber,						....
-			tu devrais éviter de le surmener le pauvre,				Ah si je vois du quel tu parles c'est un brave gars, il n'a pas besoin de maintenance pour l'instant.
-			si ça continue continue comme ça, il va partir			Tu te tais, mais de toi à moi, il n'est pas très grâcieux et accompagnable, mais il est futé et renifle bien les pistes
-			en arrêt maladie le con.								/!\ Retour menu principal
+				-QrX16
+			Il lui faut une maintenance	demain
+			dernier delai, sinon il va tomber,
+			tu devrais éviter de le surmener le pauvre,
+			si ça continue continue comme ça, il va partir
+			en arrêt maladie le con.
 			/!\ Retour menu principal
 
-
-
-
-								
+      -CH2019
+      Lequel?
+      ....
+      Ah si je vois du quel tu parles c'est un brave gars, il n'a pas besoin de maintenance pour l'instant.
+      Tu te tais, mais de toi à moi, il n'est pas très grâcieux et accompagnable, mais il est futé et renifle bien les pistes
+      /!\ Retour menu principal
