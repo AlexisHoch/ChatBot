@@ -1,3 +1,4 @@
-fun test () {
+function test (string) {
+  console.log("coucou");
 
 }
