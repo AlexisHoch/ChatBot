@@ -63,10 +63,10 @@ function getIntention (string) {
 
   var maxIntents =[];
 
-  for(int i =0; i<2; i++){
+  for(var i =0; i<2; i++){
 
     var maxIntent=meteo;
-    for(int j =1; j<intentions.length; j++){
+    for(var j =1; j<intentions.length; j++){
       if(intentions[j].matchWords>maxIntent.matchWords & maxIntents.indexOf(maxIntent)==-1){
         maxIntent=intentions[j];
       }
