@@ -72,7 +72,7 @@
         }
 
         btn_close.addEventListener("click", function(){
-          btn_close.disabled = 'disabled';  // Permet de cliquer 1 seule fois sur le Bouton
+          btn_close.disabled = true;  // Permet de cliquer 1 seule fois sur le Bouton
                                              // Evite un effet reverb sur la musique
 
           document.getElementById("saisie").value = "Vous pensiez vous débarasser aussi facilement de moi ? ";
@@ -83,10 +83,16 @@
           flush.play();
 
           //console.log("!!!!!!!!!!!!!!!!!!");
+          // Disco time pendant 13 secondes
           setTimeout(function( ) {
             clearInterval( discoTime );   // stoppe la disco
             document.body.style.backgroundColor = "white";  // retour à la couleur de base
+
+            // Disco time once again ?
+            btn_close.disabled = false; // Rend le bouton fermer à nouveau disponible uniquement pour le fun
+            document.getElementById("saisie").value = "Vous en voulez encore ? J\'en suis persuadé !";
           }, 13000);
+
         });
 
       });
