@@ -1,7 +1,7 @@
 var meteo = {
   name : "meteo",
-  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "previsions",  "canicule", "degres"],
-  values: [10, 5, 5, 3, 3, 3, 3, 3, 5],
+  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "previsions",  "canicule", "degres", "intemperie"],
+  values: [10, 5, 5, 3, 3, 3, 3, 3, 5, 8],
   tree: [],
   matchWords:0,
 };
@@ -61,36 +61,22 @@ function getIntention (string) {
   }
 
 
-  var maxIntent = jQuery.extend(true, {}, intentions);
+  var maxIntents =[];
 
-  for(var i = 0; i<intentions.length; i++){
+  for(int i =0; i<2; i++){
 
-    if(maxIntent.matchWords==0) {
-      maxIntent.push(maxIntent[i]);
-      maxIntent.remove(i);
+    var maxIntent=meteo;
+    for(int j =1; j<intentions.length; j++){
+      if(intentions[j].matchWords>maxIntent.matchWords & maxIntents.indexOf(maxIntent)==-1){
+        maxIntent=intentions[j];
+      }
     }
+    maxIntents.unshift(maxIntent);
+    maxIntent=meteo
+  }
 
-    }
-
-
-return maxIntent;
+return maxIntents;
 }
 
 
 //TESTS//
-var test = [0, 0, 2, 5,0, 7];
-
-console.log(test);
-
-for(var i = 0; i<test.length; i++){
-console.log(test[i]);
-  if(test[i]==0) {
-    var temp = test[i];
-    test.remove(i);
-    test.push(temp);
-
-  }
-
-  }
-
-console.log(test);

@@ -52,8 +52,9 @@
               var saisie = champTxt.value.toLowerCase();
               //console.log("saisie : " + saisie )
               saisie = transformeChaine(saisie);
-              //console.log("Transformée : " + saisie )
-              console.log(getIntention(saisie));  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+
+              console.log("Transformée : " + saisie )
+              getIntention(saisie);  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
 
