@@ -49,10 +49,11 @@
         var champTxt = document.getElementById("saisie");
         champTxt.addEventListener('keydown', function(event){
             if (event.keyCode == 13) {   // Si l'utilisateur tape Entrée
-              var saisie = champTxt.value.toLowerCase();  // convertit toutes les lettres en minuscules
-              saisie = transformeChaine(saisie);// transformation de la chaine => minuscules et sans accents
-              console.log("Transfo : ", saisie);
-              getIntention(saisie);  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+              var saisie = champTxt.value.toLowerCase();
+              //console.log("saisie : " + saisie )
+              saisie = transformeChaine(saisie);
+              //console.log("Transformée : " + saisie )
+              console.log(getIntention(saisie));  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
 
