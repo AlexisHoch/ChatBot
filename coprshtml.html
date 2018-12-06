@@ -17,14 +17,15 @@
 
   <p id="start"></p>
 
-
-        5 + 6;
-
-
   <script type="text/javascript">
-      document.getElementById("ia-start").addEventListener("click", function(){
+    var start = document.getElementById("ia-start");
+
+      // Quand l'utilisateur choisit de démarrer l'assistant
+      start.addEventListener("click", function(){
         var champPresent  = document.getElementById("start");
         champPresent.innerHTML = "Bonjour je serai votre assistant durant toute votre vie.";
+
+        start.parentNode.removeChild(start);
       });
   </script>
 
