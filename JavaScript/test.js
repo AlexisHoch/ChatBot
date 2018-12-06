@@ -2,7 +2,7 @@ function getIntention (string) {
 
   var mots = string.split(' ');
 
-  for(var i; i<mots.length; i++) {
+  for(var i=0; i<mots.length; i++) {
       console.log(mots[i]);
   }
 
