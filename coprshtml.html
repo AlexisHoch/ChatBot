@@ -5,7 +5,7 @@
   <title>Chatbot insupportable</title>
 
   <script type="text/javascript" src="JavaScript/test.js"></script>
-
+  <script type="text/javascript" src="JavaScript/TAD_Arbre.js"></script>
 
 </head>
 <body>
@@ -13,13 +13,16 @@
   <input id="ia-start" type="button" value="Démarrer l'assistant"> <!-- Bouton de démarrage -->
   <p id="presentation"></p>  <!-- Champ texte de présentation pour le bot -->
 
+  <span id="champUtilisateur"></span>
+  <span id="BoutonFermer"></span>
+
   <script type="text/javascript">
     var btn_start = document.getElementById("ia-start");
 
       // Quand l'utilisateur choisit de démarrer l'assistant
       btn_start.addEventListener("click", function(){
         var champStart  = document.getElementById("presentation");
-        champStart.innerHTML = "Bonjour je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle TODO ";   // Présentation du bot
+        champStart.innerHTML = "Bonjour je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
         btn_start.parentNode.removeChild(btn_start);  // Supprime le bouton "Démarrer l'assistant"
 
         // Une fois que l'assistant est lancé, on propose à l'utilisateur de le fermer
@@ -27,27 +30,69 @@
         btn_fermer.setAttribute("id", "btn_close");
         var btn_fermer_txt = document.createTextNode("Fermer l'assistant");
         btn_fermer.appendChild(btn_fermer_txt);
-        document.body.appendChild(btn_fermer);  // ajoute le bouton dans la page HTML
+        document.getElementById("BoutonFermer").appendChild(btn_fermer);  // ajoute le bouton dans la page HTML
 
         // Ajoute le champ de texte avec lequel l'utilisateur intéragit
         var input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("id", "saisie");
+        input.setAttribute("size", "70");
+        input.setAttribute("value", "Que puis-je faire pour vous aider ?");
+        document.getElementById("champUtilisateur").appendChild(input);
 
+        // Nettoie le champ si l'utilisateur clique dessus (nouvelle saisie)
+        input.addEventListener("click", function(){
+          input.value = "";
+        });
 
         // Ecoute de la saisie de l'utilisateur
         var champTxt = document.getElementById("saisie");
-        document.addEventListener('keydown', function(event){
+        champTxt.addEventListener('keydown', function(event){
             if (event.keyCode == 13) {   // Si l'utilisateur tape Entrée
-              alert(champTxt.value);
+              console.log(getIntention(champTxt.value));  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
-
         } );
 
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
+        var discoTime;
+
+        // Déclenche une danse (non pas Fortnite)
+        function disco() {
+          // DISCOOOOOOOOOOOOO !
+          var bg = document.body.style.backgroundColor;
+          var couleurs = ["purple", "yellow", "blue", "red", "green"];
+
+          // Change la couleur du fond d'écran toutes les 800 ms
+          discoTime = setInterval(function() {
+              var numCouleur = Math.floor(Math.random() * couleurs.length);
+              var couleurBackground = couleurs[numCouleur];  // Choisit une couleur aléatoire parmi les couleurs disponibles
+              document.body.style.backgroundColor = couleurBackground;
+          }, 400);
+        }
+
         btn_close.addEventListener("click", function(){
+          btn_close.disabled = true;  // Permet de cliquer 1 seule fois sur le Bouton
+                                             // Evite un effet reverb sur la musique
+
+          document.getElementById("saisie").value = "Vous pensiez vous débarasser aussi facilement de moi ? ";
+          disco();  // LET'S DANCE pendant 3 secondes
+
+          // Lecture de la musique shake that !
           var flush = new Audio('mp3/LMFAO-ShakeThat.mp3');
           flush.play();
+
+          //console.log("!!!!!!!!!!!!!!!!!!");
+          // Disco time pendant 13 secondes
+          setTimeout(function( ) {
+            clearInterval( discoTime );   // stoppe la disco
+            document.body.style.backgroundColor = "white";  // retour à la couleur de base
+
+            // Disco time once again ?
+            btn_close.disabled = false; // Rend le bouton fermer à nouveau disponible uniquement pour le fun
+            document.getElementById("saisie").value = "Vous en voulez encore ? J\'en suis persuadé !";
+          }, 13000);
+
         });
 
       });
