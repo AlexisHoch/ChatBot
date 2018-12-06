@@ -1,6 +1,6 @@
 var meteo = {
   name : "meteo",
-  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "prevision",  "canicule", "degres"],
+  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "previsions",  "canicule", "degres"],
   values: [10, 5, 5, 3, 3, 3, 3, 3, 5],
   tree: [],
   matchWords:0,
@@ -8,7 +8,7 @@ var meteo = {
 
 var agenda = {
   name : "agenda",
-  keyWords: ["agenda", "planning", "prevision","prevision", "maintenance"],
+  keyWords: ["agenda", "planning", "prevision","previsions", "maintenance"],
   values: [10, 10, 3, 3, 3],
   tree: [],
   matchWords:0,
@@ -24,8 +24,8 @@ var autonomie = {
 
 var ennui = {
   name : "ennui",
-  keyWords: ["ennui", "ennuie", "niveau", "maintenance", "robot"],
-  values: [10, 10, 3, 3, 5 ],
+  keyWords: ["ennui", "ennuie"],
+  values: [10, 10],
   tree: [],
   matchWords:0,
 };
@@ -61,17 +61,14 @@ function getIntention (string) {
   }
 
 
-  var maxIntent=[meteo, agenda];
+  var maxIntent = jQuery.extend(true, {}, intentions);
 
   for(var i = 0; i<intentions.length; i++){
-    if(intentions[i].matchWords>maxIntent[0].matchWords){
-      maxIntent[0] = intentions[i];
-      }
 
-    if(intentions[i].matchWords>maxIntent[1].matchWords & intentions[i].matchWords<maxIntent[0].matchWords){
-    maxIntent[1] = intentions[i];
-  }
-    intentions[i].matchWords=0;
+    if(maxIntent.matchWords==0) {
+      maxIntent.push(maxIntent[i]);
+      maxIntent.remove(i);
+    }
 
     }
 
@@ -81,8 +78,19 @@ return maxIntent;
 
 
 //TESTS//
-var test = [2, 5, 7];
-test.unshift(1);
+var test = [0, 0, 2, 5,0, 7];
+
 console.log(test);
-test.remove(1);
+
+for(var i = 0; i<test.length; i++){
+console.log(test[i]);
+  if(test[i]==0) {
+    var temp = test[i];
+    test.remove(i);
+    test.push(temp);
+
+  }
+
+  }
+
 console.log(test);
