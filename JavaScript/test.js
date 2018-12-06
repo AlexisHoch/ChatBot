@@ -4,6 +4,7 @@ function getIntention (string) {
 
   for(var s : mots){
     console.log(s);
+    // TEMP:
 }
   }
 
