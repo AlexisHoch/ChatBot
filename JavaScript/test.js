@@ -16,12 +16,19 @@ var agenda = {
 
 var autonomie = {
   name : "batterie",
-  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot", ""],
-  values: [10, 10, 3, 3],
+  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot"],
+  values: [10, 10, 3, 3, 5, ],
   tree: [],
   matchWords:0,
 };
 
+var ennui = {
+  name : "ennui",
+  keyWords: ["ennui", "ennuie", "niveau", "maintenance", "robot", ""],
+  values: [10, 10, 3, 3, 5, ],
+  tree: [],
+  matchWords:0,
+};
 
 
 var intentions = [meteo, agenda];
@@ -46,7 +53,7 @@ function getIntention (string) {
   }
 
 
-  var maxIntent=agenda;
+  var maxIntent=[];
   for(var i = 0; i<intentions.length; i++){
     if(intentions[i].matchWords>maxIntent.matchWords){
       maxIntent = intentions[i];
@@ -65,5 +72,5 @@ return maxIntent;
 
 
 //TESTS//
-console.log(getIntention("Donne moi la meteo de demain"));
-console.log(getIntention("Quel est mon planning de la semain ?"));
+var intent = getIntention("Donne moi la meteo");
+console.log(intent);
