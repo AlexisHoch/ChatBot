@@ -2,9 +2,11 @@ function getIntention (string) {
 
   var mots = string.split(' ');
 
-  for(var s : mots){
-    console.log(s);
-}
+  for(var i; i<mots.length; i++) {
+      console.log(mots[i]);
   }
 
 }
+
+
+getIntention("Je cherche une poupée russe");
