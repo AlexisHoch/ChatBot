@@ -8,11 +8,20 @@ var meteo = {
 
 var agenda = {
   name : "agenda",
-  keyWords: ["agenda", "planning", "prevision"],
-  values: [10, 10, 3],
+  keyWords: ["agenda", "planning", "prevision", "maintenance"],
+  values: [10, 10, 3, 3],
   tree: [],
   matchWords:0,
 };
+
+var autonomie = {
+  name : "batterie",
+  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot", ""],
+  values: [10, 10, 3, 3],
+  tree: [],
+  matchWords:0,
+};
+
 
 
 var intentions = [meteo, agenda];
@@ -22,7 +31,6 @@ var intentions = [meteo, agenda];
 function getIntention (string) {
 
   var mots = string.split(' ');
-
   for(var i=0; i<mots.length; i++) {
       var mot=mots[i];
 
