@@ -1,14 +1,24 @@
 var meteo = {
   name : "meteo",
-  keyWords: ["meteo", "temps", "temperature"],
-  values: [10, 5, 5],
+  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "canicule", "degres"],
+  values: [10, 5, 5, 3, 3, 3, 3, 5],
+  tree: [],
+  matchWords:0,
+};
+
+var agenda = {
+  name : "agenda",
+  keyWords: ["agenda", "planning", "prevision"],
+  values: [10, 10, 3],
   tree: [],
   matchWords:0,
 };
 
 
-var intentions = [meteo];
+var intentions = [meteo, agenda];
 
+//Param : String
+//Fonction permettant de determiner l'intention de l'utilisateur de manière basique
 function getIntention (string) {
 
   var mots = string.split(' ');
@@ -19,16 +29,25 @@ function getIntention (string) {
 
 
         for(var k =0; k<intentions[j].keyWords.length; k++){
-          if(intentions[j].keyWords[k]==mot){
+          if(intentions[j ].keyWords[k]==mot){
             intentions[j].matchWords=intentions[j].matchWords+intentions[j].values[k];
-            console.log(intentions[j].matchWords);
           }
         }
       }
   }
 
 
+  var maxIntent=agenda;
+  for(var i = 0; i<intentions.length; i++){
+    if(intentions[i].matchWords>maxIntent.matchWords){
+      maxIntent = intentions[i];
+      }
+    intentions[i].matchWords=0;
 
+    }
+
+
+return maxIntent;
 }
 
 
@@ -37,4 +56,5 @@ function getIntention (string) {
 
 
 //TESTS//
-getIntention("Donne moi la meteo de demain");
+console.log(getIntention("Donne moi la meteo de demain"));
+console.log(getIntention("Quel est mon planning de la semain ?"));
