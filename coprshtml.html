@@ -10,8 +10,28 @@
 </head>
 <body>
 
+  <input id="ia-start"
+         type="button"
+         value="Démarrer l'assistant">
+
+
+  <p id="start"></p>
+
+
+        5 + 6;
+
+
+  <script type="text/javascript">
+      document.getElementById("ia-start").addEventListener("click", function(){
+        var champPresent  = document.getElementById("start");
+        champPresent.innerHTML = "Bonjour je serai votre assistant durant toute votre vie.";
+      });
+  </script>
+
+  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui
   <canvas id='c'></canvas>
   <script src='JavaScript/snake.js'></script>
+  -->
 
 </body>
 </html>
