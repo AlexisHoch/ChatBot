@@ -1,3 +1,6 @@
+
+var tab = ["meteo", "temps", "temperature"];
+
 function getIntention (string) {
 
   var mots = string.split(' ');
@@ -6,7 +9,15 @@ function getIntention (string) {
       console.log(mots[i]);
   }
 
+
+
+
 }
 
 
+
+
+
+
+//TESTS//
 getIntention("Je cherche une poupée russe");
