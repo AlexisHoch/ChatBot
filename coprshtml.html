@@ -32,8 +32,16 @@
         // Ajoute le champ de texte avec lequel l'utilisateur intéragit
         var input = document.createElement("input");
         input.setAttribute("type", "text");
-        input.setAttribute("value", "");
-        document.body.appendChild(input);
+
+
+        // Ecoute de la saisie de l'utilisateur
+        var champTxt = document.getElementById("saisie");
+        document.addEventListener('keydown', function(event){
+            if (event.keyCode == 13) {   // Si l'utilisateur tape Entrée
+              alert(champTxt.value);
+            }
+
+        } );
 
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
