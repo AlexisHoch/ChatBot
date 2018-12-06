@@ -49,9 +49,16 @@
         var champTxt = document.getElementById("saisie");
         champTxt.addEventListener('keydown', function(event){
             if (event.keyCode == 13) {   // Si l'utilisateur tape Entrée
-              getIntention(champTxt.value);  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+              var saisie = champTxt.value.toLowerCase();  // convertit toutes les lettres en minuscules
+              saisie = transformeChaine(saisie);// transformation de la chaine => minuscules et sans accents
+              console.log("Transfo : ", saisie);
+              getIntention(saisie);  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
+
+        function transformeChaine(s) {
+          return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\W/g, ''); // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre (^, !, /)
+        }
 
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
@@ -98,10 +105,11 @@
       });
   </script>
 
-  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui
+  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui  -->
+  <br></br>
   <canvas id='c'></canvas>
   <script src='JavaScript/snake.js'></script>
-  -->
+
 
 </body>
 </html>
