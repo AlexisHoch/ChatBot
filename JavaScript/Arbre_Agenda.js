@@ -11,6 +11,8 @@
 //   fils : null,
 // };
 
+
+
 var NonR = {
   père: "Rappels",
   réponse : "NonR",
@@ -71,5 +73,3 @@ var LancementM = {
   description : "Que veux-tu savoir ?",
   fils : [Kilometre,Maintenance,Extraction,Rappels],
 };
-
-console.log(LancementM);
