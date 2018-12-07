@@ -1,8 +1,13 @@
+import LancementM as arbreAgenda from 'Arbre_Agenda.js';
+import LancementM as arbreEnnuie from 'ArbreEnnuie.js';
+import LancementM as arbreMeteo from 'Arbre_Meteo.js';
+import LancementM as arbreSurvie from 'ArbreSurvie.js';
+
 var meteo = {
   name : "meteo",
   keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "previsions",  "canicule", "degres", "intemperie"],
   values: [10, 5, 5, 3, 3, 3, 3, 3, 5, 8],
-  tree: [],
+  tree: arbreMeteo.LancementM,
   matchWords:0,
 };
 
@@ -10,7 +15,7 @@ var agenda = {
   name : "agenda",
   keyWords: ["agenda", "planning", "prevision","previsions", "maintenance"],
   values: [10, 10, 3, 3, 3],
-  tree: [],
+  tree: arbreAgenda.LancementM,
   matchWords:0,
 };
 
@@ -26,7 +31,7 @@ var ennui = {
   name : "ennui",
   keyWords: ["ennui", "ennuie"],
   values: [10, 10],
-  tree: [],
+  tree: arbreEnnuie.LancementM,
   matchWords:0,
 };
 
