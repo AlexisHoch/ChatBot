@@ -77,6 +77,7 @@
     <img id="infoB" src=""></img>
 
     <div class="text-block">
+      <h3 id="h3_txt"></h3>
     </div>
   </div>
 
@@ -128,11 +129,8 @@
       btn_start.addEventListener("click", function(){
         var champStart  = document.getElementById("presentation");
         champStart.backgroundColor = "red";
-<<<<<<< HEAD
-
-=======
         champStart.innerHTML = "Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Avant de commencer, vous devez savoir que même si le divertissement et l'apprentissage scientifique sont au coeur de votre expédition, vous risquez de subir des lésions irréversibles. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
->>>>>>> 988c7f639f4d4b5c5584b54be708b6f051f09240
+
         btn_start.parentNode.removeChild(btn_start);  // Supprime le bouton "Démarrer l'assistant"
 
         // Une fois que l'assistant est lancé, on propose à l'utilisateur de le fermer
@@ -174,23 +172,24 @@
         img.setAttribute("src", "img/infobulle.png");
 
         // Texte de l'infobulle
-        var h3 = document.createElement("h3");
-        h3.setAttribute("id", "h3_txt");
         function txtInfobulle(s) {
+          var h3 = document.getElementById("h3_txt");
           var txt = document.createTextNode(s);
           var zoneTxt = document.querySelector(".text-block");
 
-
+          if(h3.innerHTML != "")
+            h3.innerHTML = ""
 
           h3.appendChild(txt);
           zoneTxt.appendChild(h3);
         }
 
-
-
+        // Présentation
         txtInfobulle("Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ");
-console.log("Texte = " + document.getElementById("h3").innerHTML);
+        txtInfobulle("Yooooooooooo ");
 
+
+        /* Transforme la saisie de l'utilisateur afin d'avoir une chaîne pure */
         function transformeChaine(s) {
           return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z ]/g, "");; // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre et d'un espace (^, !, /)
         }
@@ -223,7 +222,7 @@ console.log("Texte = " + document.getElementById("h3").innerHTML);
 
         }
 
-        btn_close.addEventListener("click", function(){
+          btn_close.addEventListener("click", function(){
           btn_close.disabled = true;  // Permet de cliquer 1 seule fois sur le Bouton
                                              // Evite un effet reverb sur la musique
 
