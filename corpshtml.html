@@ -83,7 +83,12 @@
     </div>
   </div>
 
-  <br></br>
+  <br>
+  </br>
+  <div id="boutonIntention">
+
+
+  </div>
   <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
 
 
@@ -185,7 +190,10 @@
                   zoneRechercheWiki.removeChild(input2);
                 });
 
-              }  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+              }
+
+            confirmation(getIntention(saisie),0);
+
             }
         } );
 
@@ -272,13 +280,72 @@
 
         });
 
+
+        function confirmation(list, i){
+          console.log(list[i].name);
+          txtInfobulle(list[i].name);
+
+          var zoneBouton = document.getElementById("boutonIntention");
+
+          var oui = document.createElement("button");
+          oui.setAttribute("id","oui");
+          oui.setAttribute("type", "radio");
+          oui.setAttribute("value","Oui");
+
+          var non = document.createElement("button");
+          non.setAttribute("id","non");
+          non.setAttribute("type", "radio");
+          non.setAttribute("value","NOn");
+
+<<<<<<< HEAD
+
+
+
+    }
+=======
+          zoneBouton.appendChild(oui);
+          zoneBouton.appendChild(non);
+
+          oui.addEventListener("click", function() {
+            boutonArbre(list[0]);
+          });
+          non.addEventListener("click", function() {
+            confirmation(list, i++);
+          });
+        }
+
+
+        function boutonArbre(tabIntentions){
+          for(var i=0;i< tabIntentions.length;i++){
+            var zoneBouton = document.getElementById("boutonIntention");
+            var button = document.createElement('button');
+            button.id = "reponse-"+i;
+            button.innerHTML = tabIntentions[i].tree.fils[i];
+
+            zoneBouton.appendChild(button);
+
+          }
+        }
+
+
+
+      // EXERCICE 3
+      function boutonAjout(boutons) {
+        var boutons = document.querySelectorAll('button');
+
+        for(var i=0;i< boutons.length ;i++){
+          boutons[i].addEventListener('click', ajoutPanier);
+        }
+      }
+
+
       });
 
 
 
 
 
-    }
+>>>>>>> fca5f98033d91157f8e3d810bcd4f697777be305
       /***********************************************************************************************/
       /*                                  FIN DE LA PARTIE GRAPHIQUE                                 */
       /***********************************************************************************************/
