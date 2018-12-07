@@ -4,12 +4,10 @@
   <meta charset="utf-8">
   <title>Chatbot insupportable</title>
 
-  <!-- <script type="text/javascript" src="JavaScript/test.js"></script> -->
-<<<<<<< HEAD
+  <script type="text/javascript" src="JavaScript/test.js"></script>
   <script type="text/javascript" src="JavaScript/Arbre_Meteo.js"></script>
-=======
   <script type="text/javascript" src="JavaScript/ArbreSurvie.js"></script>
->>>>>>> 9f688486e8e41e296de6eb1a5c4226c25959278a
+  <script type="text/javascript" src="JavaScript/Arbre_Agenda.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -39,6 +37,7 @@
         font-weight: bold;
       }
 
+
   </style>
 
 </head>
@@ -50,7 +49,9 @@
 
   <div id="core" >
     <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
+    <span id="infob"></span>
   </div>
+
   <br><br/>
   <h2> Recherche Wikipédia : </h2>
   <span id="wikipedia">  <!-- Rechercher sur Wikipédia -->
@@ -70,11 +71,10 @@
       btn_start.onmousemove = function(e){
           btn_start.value = "Désolé ce bot n'est pas très bien codé ..."
 
-          // Donne 10 chances à l'utilisateur pour démarrer le bot
-          if (count > 10) {
+          // Donne 7 chances à l'utilisateur pour démarrer le bot
+          if (count > 7) {
             btn_start.value = "Vous n'êtes pas bien rapide pour un humain";
             window.alert("Je vais m'auto-exécuter, attention ne bougez pas trop quand même ...");
-            btn_start.removeEventListener();
           } else {
             // Coodonnées courantes du bouton
             var x = e.pageX - this.offsetLeft;
@@ -135,6 +135,16 @@
           return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\W/g, ''); // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre (^, !, /)
         }
 
+        // Ajout d'une infobulle pour la réponse du bot
+        var infob = document.createElement("IMG");
+        infob.setAttribute("id", "infoB");
+        infob.setAttribute("src", "img/infobulle.png");
+        infob.setAttribute("alt", "infobulle (réponse bot)");
+        var btn_fermer_txt = document.createTextNode("Texte de l'arbre !");
+        infob.appendChild(infob);
+        document.getElementById("infob").appendChild(infob);
+
+
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
         var discoTime;
@@ -178,12 +188,18 @@
         });
 
       });
+      /***********************************************************************************************/
+      /*                                  FIN DE LA PARTIE GRAPHIQUE                                 */
+      /***********************************************************************************************/
+
+
   </script>
+
   <!-- Fun facts -->
-  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui  -->
+  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui
   <br></br>
   <canvas id='c'></canvas>
-  <script src='JavaScript/snake.js'></script>
+  <script src='JavaScript/snake.js'></script>  -->
 
 
 </body>
