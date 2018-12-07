@@ -15,6 +15,13 @@
 
   <span id="champUtilisateur"></span>
   <span id="BoutonFermer"></span>
+  <br><br/>
+  <span id="wikipedia">  <!-- Rechercher sur Wikipédia -->
+    <form method="get" action="https://fr.wikipedia.org/w/index.php">
+      <input type="text" name="search" value="Recherche Wikipédia" onfocus="if(this.value == 'Recherche Wikipédia') { this.value = ''; }">
+      <input type="submit">
+    </form>
+  </span>
 
   <script type="text/javascript">
     var btn_start = document.getElementById("ia-start");
@@ -106,7 +113,7 @@
 
       });
   </script>
-
+  <!-- Fun facts -->
   <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui  -->
   <br></br>
   <canvas id='c'></canvas>
