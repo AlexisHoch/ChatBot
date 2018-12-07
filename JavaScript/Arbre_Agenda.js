@@ -72,4 +72,4 @@ var LancementM = {
   fils : [Kilometre,Maintenance,Extraction,Rappels],
 };
 
-console.console.log(LancementM);
+console.log(LancementM);
