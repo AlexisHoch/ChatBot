@@ -41,7 +41,9 @@
         font-size: 15px;
       }
 
-
+      .ListeC{
+        margin-left: 100px;
+      }
       /* Zone de texte dans l'infobulle */
      .containeur {
        margin-left: 80px;
@@ -83,7 +85,7 @@
 
   <br></br>
   <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
-
+  <input id="ListeChoix" class="ListeC" ></span>
 
   <br><br/>
   <span id="wikipedia">  <!-- Rechercher sur Wikipédia -->
@@ -234,7 +236,13 @@
 
         }
 
+<<<<<<< HEAD:coprshtml.html
+
+
+        btn_close.addEventListener("click", function(){
+=======
           btn_close.addEventListener("click", function(){
+>>>>>>> 671294a49c6a8db454f39f287e283c9dbb5208dc:corpshtml.html
           btn_close.disabled = true;  // Permet de cliquer 1 seule fois sur le Bouton
                                              // Evite un effet reverb sur la musique
 
@@ -259,6 +267,20 @@
         });
 
       });
+
+
+      function BoutonArray(List){
+        for (var i = 0; i < List.length; i++){
+          var L_Choix = document.createElement("button");
+          L_Choix.setAttribute("id",i);
+          L_Choix.setAttribute("Value",List[i].réponse);
+          var Lc= document.getElementById("ListeChoix");
+          Lc.appendChild(L_Choix);
+        }
+      };
+
+
+      BoutonArray(LancementMeteo.fils);
       /***********************************************************************************************/
       /*                                  FIN DE LA PARTIE GRAPHIQUE                                 */
       /***********************************************************************************************/
