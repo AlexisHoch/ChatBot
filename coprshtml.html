@@ -165,17 +165,22 @@
         img.setAttribute("src", "img/infobulle.png");
 
         // Texte de l'infobulle
+        var h3 = document.createElement("h3");
+        h3.setAttribute("id", "h3_txt");
         function txtInfobulle(s) {
           var txt = document.createTextNode(s);
           var zoneTxt = document.querySelector(".text-block");
-          var h3 = document.createElement("h3");
 
-          h3.textContent=h3_txt;
+
+
+          h3.appendChild(txt);
           zoneTxt.appendChild(h3);
         }
 
-        txtInfobulle("Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ");
 
+
+        txtInfobulle("Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ");
+console.log("Texte = " + document.getElementById("h3").innerHTML);
 
         function transformeChaine(s) {
           return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z ]/g, "");; // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre et d'un espace (^, !, /)
