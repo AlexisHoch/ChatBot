@@ -346,6 +346,7 @@ Array.prototype.remove = function(from, to) {
 //Fonction permettant de determiner l'intention de l'utilisateur de manière basique
 function getIntention (string) {
 
+//Liste des intentions possible
 var intentions = [meteo, agenda, survie, ennui, wikipedia];
 
   //Découpe du string en parametre et incrémentaions des variables matchWords si necessaire
@@ -367,7 +368,7 @@ var intentions = [meteo, agenda, survie, ennui, wikipedia];
 var listeTrié=[]
 
 //Je vide la liste intentions pour le tri
-//La variable indice est l'indice du maximum
+//La variable indice est l'indice du maximum des matchWords
 while(intentions.length!=0){
   var indice=0;
   for(var i =1; i<intentions.length; i++){
