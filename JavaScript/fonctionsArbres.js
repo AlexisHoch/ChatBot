@@ -277,7 +277,7 @@ var Pinguouin = {
 var FunFacts = {
   père: "Tu veux que je te fasse passer le temps ?",
   réponse : "FunFacts",
-  description : "Combien de kilometre je dois parcourir aujourd'hui?",
+  description : "Choisi un fun fact",
   fils : [Pinguouin,Porte,Mouse,Loutre,Everest,Israel,Marcher,Lac,Libye,Croissant]};
 
 
