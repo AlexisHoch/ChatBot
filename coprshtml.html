@@ -5,9 +5,6 @@
   <title>Chatbot insupportable</title>
 
   <script type="text/javascript" src="JavaScript/test.js"></script>
-  <script type="text/javascript" src="JavaScript/Arbre_Meteo.js"></script>
-  <script type="text/javascript" src="JavaScript/ArbreSurvie.js"></script>
-  <script type="text/javascript" src="JavaScript/Arbre_Agenda.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -37,6 +34,13 @@
         font-weight: bold;
       }
 
+      #btn_croix{
+        float:right;
+        height: 20px;
+        display: inline-block;
+        font-size: 15px;
+      }
+
 
   </style>
 
@@ -44,6 +48,7 @@
 <body>
 
   <br></br>
+  <input id='btn_croix' type='button' value='x' OnClick=""/></br>
   <input id="ia-start" type="button" class="btn btn-primary" value="Démarrer l'assistant"> <!-- Bouton de démarrage -->
   <p id="presentation"></p>  <!-- Champ texte de présentation pour le bot -->
 

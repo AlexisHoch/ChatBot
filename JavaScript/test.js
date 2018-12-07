@@ -378,6 +378,6 @@ intentions.remove(indice);
 return listeTrié;
 }
 
-
 //TESTS//
-console.log(getIntention("test"));
+//console.log(meteo.tree);
+//console.log(getIntention("test"));
