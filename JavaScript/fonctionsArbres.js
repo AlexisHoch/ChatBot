@@ -194,16 +194,6 @@ var LancementMeteo = {
 };
 
 
-/*function lancement(arrayIntention){
-  var objet = arrayIntention[0];
-  console.log("Voulez vous bien", objet, "?");
-  if ("Yes"){
-    objet.tree;
-  }
-  else{
-    (obje)
-  }
-}*/
 
 
 
@@ -393,17 +383,17 @@ var agenda = {
 
 var survie = {
   name : "Voulez vous des informations sur vos reserves ?",
-  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot", "provisions", "eau", "nourriture", "QrX16", "CH2019"],
-  values: [10, 10, 1, 3, 5, 6, 7, 7, 7, 7],
+  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot", "provisions", "eau", "nourriture", "QrX16", "CH2019", "reserve", "reserves"],
+  values: [10, 10, 1, 3, 5, 6, 7, 7, 7, 7, 5, 5],
   tree: LancementSurvie,
   matchWords:0,
 };
 
 var ennui = {
-  name : "Que puis je faire pour vous divertir ?",
-  keyWords: ["ennui", "ennuie"],
-  values: [10, 10],
-  tree: [],
+  name : "Voulez vous vous divertir ?",
+  keyWords: ["ennui", "ennuie", "divertir", "divertissement"],
+  values: [10, 10, 8, 8],
+  tree: LancementEnnui,
   matchWords:0,
 };
 
