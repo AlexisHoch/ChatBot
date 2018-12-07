@@ -70,7 +70,6 @@
 <body>
 
   <br></br>
-  <input id='btn_croix' type='button' value='x' OnClick=""/></br>
   <input id="ia-start" type="button" class="btn btn-primary" value="Démarrer l'assistant"> <!-- Bouton de démarrage -->
   <p id="presentation"></p>  <!-- Champ texte de présentation pour le bot -->
 
@@ -105,15 +104,15 @@
       /* Changement des coordonnées du bouton Démarrer quand la souris est dessus
        * LE BOUTON DEVIENT IMPOSSIBLE à selectionner
        */
-       /* TODO
-      var count=0;
+
+      /*var count=0;
       btn_start.onmousemove = function(e){
           btn_start.value = "Désolé ce bot n'est pas très bien codé ..."
 
           // Donne 7 chances à l'utilisateur pour démarrer le bot
           if (count > 7) {
             btn_start.value = "Vous n'êtes pas bien rapide pour un humain";
-            window.alert("Je vais m'auto-exécuter, attention ne bougez pas trop quand même ...");
+            window.alert("Je vais m'auto-exécuter, attention ne bougez pas la souris et appuyez sur entrer");
           } else {
             // Coodonnées courantes du bouton
             var x = e.pageX - this.offsetLeft;
@@ -127,8 +126,8 @@
           }
 
           count++;
-      }
-      */
+      }*/
+
 
       // Quand l'utilisateur choisit de démarrer l'assistant
       btn_start.addEventListener("click", function(){
@@ -167,10 +166,10 @@
               //console.log("saisie : " + saisie )
               saisie = transformeChaine(saisie);
 
-              console.log("Transformée : " + saisie )
-              if(getIntention(saisie).name="wikipedia"){
-                var zoneRechercheWiki  = document.getElementById("formwiki");
+              console.log(getIntention(saisie)[0].name);
+              if(getIntention(saisie)[0].name=="wikipedia"){
 
+                var zoneRechercheWiki  = document.getElementById("formwiki");
                 var input1 = document.createElement("input");
                 input1.setAttribute("type", "text");
                 input1.setAttribute("name", "search");
@@ -191,8 +190,9 @@
                 });
 
               }
-
+            else{
             confirmation(getIntention(saisie),0);
+            }
 
             }
         } );
@@ -282,55 +282,74 @@
 
 
         function confirmation(list, i){
+
+          if(i>=list.length){
+            txtInfobulle("Je n'ai pas compris votre demande, veuillez recommencer");
+          }
+          else{
           console.log(list[i].name);
           txtInfobulle(list[i].name);
 
           var zoneBouton = document.getElementById("boutonIntention");
 
-          var oui = document.createElement("button");
+          var oui = document.createElement("INPUT");
           oui.setAttribute("id","oui");
-          oui.setAttribute("type", "radio");
+          oui.setAttribute("type", "button");
           oui.setAttribute("value","Oui");
 
-          var non = document.createElement("button");
+          var non = document.createElement("INPUT");
           non.setAttribute("id","non");
-          non.setAttribute("type", "radio");
-          non.setAttribute("value","NOn");
+          non.setAttribute("type", "button");
+          non.setAttribute("value","Non");
+
 
           zoneBouton.appendChild(oui);
           zoneBouton.appendChild(non);
 
           oui.addEventListener("click", function() {
-            boutonArbre(list[0]);
+            non.parentNode.removeChild(non);
+            oui.parentNode.removeChild(oui);
+            boutonArbre(list[0].tree);
+
           });
           non.addEventListener("click", function() {
-            confirmation(list, i++);
+            oui.parentNode.removeChild(oui);
+            non.parentNode.removeChild(non);
+            confirmation(list, i+1);
           });
         }
+      }
 
 
-        function boutonArbre(tabIntentions){
-          for(var i=0;i< tabIntentions.length;i++){
+        function boutonArbre(tree){
+          var t = tree;
+          txtInfobulle(tree.description);
+          for(var i=0;i< tree.fils.length;i++){
             var zoneBouton = document.getElementById("boutonIntention");
-            var button = document.createElement('button');
-            button.id = "reponse-"+i;
-            button.innerHTML = tabIntentions[i].tree.fils[i];
+            var button = document.createElement('INPUT');
+            button.setAttribute("type", "button");
+            button.setAttribute("value",tree.fils[i]);
+            button.id = i;
+            console.log(tree.fils[i].réponse);
+            button.value = tree.fils[i].réponse;
 
             zoneBouton.appendChild(button);
 
+            button.addEventListener("click", function(e){
+              var zoneBouton = document.getElementById("boutonIntention");
+
+              while (zoneBouton.firstChild) {
+                  zoneBouton.removeChild(zoneBouton.firstChild);
+              }
+
+              console.log(this.id);
+              boutonArbre(tree.fils[this.id]);
+
+            });
           }
         }
 
 
-
-      // EXERCICE 3
-      function boutonAjout(boutons) {
-        var boutons = document.querySelectorAll('button');
-
-        for(var i=0;i< boutons.length ;i++){
-          boutons[i].addEventListener('click', ajoutPanier);
-        }
-      }
 
 
       });

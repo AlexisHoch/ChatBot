@@ -471,7 +471,6 @@ intentions.remove(indice);
 return listeTrié;
 }
 
-console.log(getIntention("wikipedia"));
 
 
 
