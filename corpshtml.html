@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Chatbot insupportable</title>
 
-  <script type="text/javascript" src="JavaScript/test.js"></script>
+  <script type="text/javascript" src="JavaScript/fonctionsArbres.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -46,7 +46,7 @@
       }
       /* Zone de texte dans l'infobulle */
      .containeur {
-       margin-left: 500px;
+       margin-left: 80px;
        height:10%;
        width:30%;
        position: relative;
@@ -56,7 +56,12 @@
      .text-block {
        position: absolute;
        top: 12%;
-       right: 65%;
+       right: 26%;
+     }
+
+     h3 {
+       width: 350px;
+       font-size: 14px;
      }
 
   </style>
@@ -71,12 +76,14 @@
 
   <!-- Zone pour l'infobulle -->
   <div class="containeur">
-    <img id="infoB" src="img/infobulle.png"></img>
+    <img id="infoB" src=""></img>
 
     <div class="text-block">
+      <h3 id="h3_txt"></h3>
     </div>
   </div>
 
+  <br></br>
   <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
   <input id="ListeChoix" class="ListeC" ></span>
 
@@ -124,7 +131,8 @@
       btn_start.addEventListener("click", function(){
         var champStart  = document.getElementById("presentation");
         champStart.backgroundColor = "red";
-        champStart.innerHTML = "Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
+
+
         btn_start.parentNode.removeChild(btn_start);  // Supprime le bouton "Démarrer l'assistant"
 
         // Une fois que l'assistant est lancé, on propose à l'utilisateur de le fermer
@@ -162,13 +170,28 @@
         } );
 
         // Ajout d'une infobulle pour la réponse du bot une fois que l'utilisateur à fait sa saisie
-        // Texte de l'infobulle
-        var txt = document.createTextNode("Texte de l'arbre !");
-        var zoneTxt = document.querySelector(".text-block");
-        var h3 = document.createElement("h3");
-        h3.appendChild(txt);
-        zoneTxt.appendChild(h3);
+        var img = document.getElementById("infoB");
+        img.setAttribute("src", "img/infobulle.png");
 
+        // Texte de l'infobulle
+        function txtInfobulle(s) {
+          var h3 = document.getElementById("h3_txt");
+          var txt = document.createTextNode(s);
+          var zoneTxt = document.querySelector(".text-block");
+
+          if(h3.innerHTML != "")
+            h3.innerHTML = ""
+
+          h3.appendChild(txt);
+          zoneTxt.appendChild(h3);
+        }
+
+        // Présentation
+        txtInfobulle("Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ");
+        //txtInfobulle("Test de changement de texte ");
+
+
+        /* Transforme la saisie de l'utilisateur afin d'avoir une chaîne pure */
         function transformeChaine(s) {
           return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z ]/g, "");; // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre et d'un espace (^, !, /)
         }
@@ -176,6 +199,7 @@
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
         var discoTime;
+        var timer;
 
         // Déclenche une danse (non pas Fortnite)
         function disco() {
@@ -184,16 +208,29 @@
           var couleurs = ["purple", "yellow", "blue", "red", "green"];
 
           // Change la couleur du fond d'écran toutes les 800 ms
+          alert("J'accepte mal l'autorité.");
           discoTime = setInterval(function() {
               var numCouleur = Math.floor(Math.random() * couleurs.length);
               var couleurBackground = couleurs[numCouleur];  // Choisit une couleur aléatoire parmi les couleurs disponibles
               document.body.style.backgroundColor = couleurBackground;
+
           }, 400);
+
+          // Re-affiche une popup à la fin de la disco time
+          setTimeout(function( ) {
+              alert("Si vous sentez un liquide sur vos épaules, allongez-vous et exercez une pression continue sur vos tempes.");
+          }, 13500);
+
+
         }
 
+<<<<<<< HEAD:coprshtml.html
 
 
         btn_close.addEventListener("click", function(){
+=======
+          btn_close.addEventListener("click", function(){
+>>>>>>> 671294a49c6a8db454f39f287e283c9dbb5208dc:corpshtml.html
           btn_close.disabled = true;  // Permet de cliquer 1 seule fois sur le Bouton
                                              // Evite un effet reverb sur la musique
 
