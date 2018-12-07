@@ -323,6 +323,14 @@ var ennui = {
   matchWords:0,
 };
 
+var wikipedia = {
+  name : "wikipedia",
+  keyWords: ["recherche", "chercher", "rechercher", "encyclopedie", "definition", "wikipedia"],
+  values: [7, 7, 7, 7, 5, 10],
+  tree: "wikipedia",
+  matchWords:0,
+}
+
 
 
 
@@ -338,7 +346,7 @@ Array.prototype.remove = function(from, to) {
 //Fonction permettant de determiner l'intention de l'utilisateur de manière basique
 function getIntention (string) {
 
-var intentions = [meteo, agenda, survie, ennui];
+var intentions = [meteo, agenda, survie, ennui, wikipedia];
 
   //Découpe du string en parametre et incrémentaions des variables matchWords si necessaire
   var mots = string.split(' ');
@@ -378,9 +386,9 @@ intentions.remove(indice);
 return listeTrié;
 }
 
+console.log(getIntention("wikipedia"));
+
+
+
 //TESTS//
-<<<<<<< HEAD
-=======
-//console.log(meteo.tree);
->>>>>>> f1a314d728d5f7b6408a5338a83e886052473387
 //console.log(getIntention("test"));
