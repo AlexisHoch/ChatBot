@@ -348,6 +348,10 @@
               console.log(this.id);
               boutonArbre(tree.fils[this.id]);
 
+              if (tree.fils[this.value]=="Snake") {
+                document.getElementById("jeu").setAttribute("src", "JavaScript/snake.js") ;
+              }
+
             });
           }
         }
@@ -364,7 +368,7 @@
   <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui -->
   <br></br>
   <canvas id='c'></canvas>
-  <script src='JavaScript/snake.js'></script>
+  <script id="jeu" src=''></script>
 
 
 </body>
