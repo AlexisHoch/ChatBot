@@ -1,7 +1,7 @@
 Agenda:
 
 	Tu as bien demandé ton agenda?
-		-Yes																					                 	             -No
+		-Oui 																					                 	             -Non
 	Que veux tu savoir?
   																	                                           Apprends à parler
 		-Combien de kilometre je dois parcourir aujourd'hui?	                    /!\ Retour menu principal
@@ -19,7 +19,7 @@ Agenda:
 
 	...
 	Veux tu des rappels intéressants ?
-			-Yes																					                                                      -No
+			-Oui																				                                                      -Non
 	Alors, tu m'obliges à beaucoup trop parler là, t'abuses.									                        Comment ça non? Je fais ce que je veux en fait, c'est MOI le Boss. Alors je vais te raconter à quel point tu es dans la merde
 	...																							                                                       ...
 	Enfin bref, il te reste (x) portions de nourriture, va falloir se calmer sur la bouffe		             idem
