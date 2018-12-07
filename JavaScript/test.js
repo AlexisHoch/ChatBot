@@ -15,7 +15,7 @@ var agenda = {
 };
 
 var autonomie = {
-  name : "batterie",
+  name : "autonomie",
   keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot"],
   values: [10, 10, 3, 3, 5, ],
   tree: [],
@@ -31,7 +31,7 @@ var ennui = {
 };
 
 
-var intentions = [meteo, agenda, autonomie, ennui];
+
 
 // Array Remove - By John Resig (MIT Licensed)
 Array.prototype.remove = function(from, to) {
@@ -45,12 +45,14 @@ Array.prototype.remove = function(from, to) {
 //Fonction permettant de determiner l'intention de l'utilisateur de manière basique
 function getIntention (string) {
 
+var intentions = [meteo, agenda, autonomie, ennui];
+
+  //Découpe du string en parametre et incrémentaions des variables matchWords si necessaire
   var mots = string.split(' ');
   for(var i=0; i<mots.length; i++) {
       var mot=mots[i];
 
       for(var j=0; j<intentions.length; j++){
-
 
         for(var k =0; k<intentions[j].keyWords.length; k++){
           if(intentions[j ].keyWords[k]==mot){
@@ -61,22 +63,28 @@ function getIntention (string) {
   }
 
 
-  var maxIntents =[];
+var listeTrié=[]
 
-  for(int i =0; i<2; i++){
-
-    var maxIntent=meteo;
-    for(int j =1; j<intentions.length; j++){
-      if(intentions[j].matchWords>maxIntent.matchWords & maxIntents.indexOf(maxIntent)==-1){
-        maxIntent=intentions[j];
-      }
+//Je vide la liste intentions pour le tri
+//La variable indice est l'indice du maximum
+while(intentions.length!=0){
+  var indice=0;
+  for(var i =1; i<intentions.length; i++){
+    if(intentions[i].matchWords>=intentions[indice].matchWords){
+      indice=i;
     }
-    maxIntents.unshift(maxIntent);
-    maxIntent=meteo
   }
+  //Je ne veux que les matchWords différent de 0
+  if(intentions[indice].matchWords!=0){
+  listeTrié.push(intentions[indice]);
+}
+//Je retire l'élèment maximum de la liste
+intentions.remove(indice);
+}
 
-return maxIntents;
+return listeTrié;
 }
 
 
 //TESTS//
+console.log(getIntention("maintenance"));
