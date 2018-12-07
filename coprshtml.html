@@ -40,7 +40,7 @@
 
       /* Zone de texte dans l'infobulle */
      .containeur {
-       margin-left: 500px;
+       margin-left: 80px;
        height:10%;
        width:30%;
        position: relative;
@@ -50,7 +50,12 @@
      .text-block {
        position: absolute;
        top: 12%;
-       right: 65%;
+       right: 26%;
+     }
+
+     h3 {
+       width: 350px;
+       font-size: 15px;
      }
 
   </style>
@@ -64,12 +69,13 @@
 
   <!-- Zone pour l'infobulle -->
   <div class="containeur">
-    <img id="infoB" src="img/infobulle.png"></img>
+    <img id="infoB" src=""></img>
 
     <div class="text-block">
     </div>
   </div>
 
+  <br></br>
   <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
 
 
@@ -117,7 +123,7 @@
       btn_start.addEventListener("click", function(){
         var champStart  = document.getElementById("presentation");
         champStart.backgroundColor = "red";
-        champStart.innerHTML = "Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
+
         btn_start.parentNode.removeChild(btn_start);  // Supprime le bouton "Démarrer l'assistant"
 
         // Une fois que l'assistant est lancé, on propose à l'utilisateur de le fermer
@@ -155,12 +161,21 @@
         } );
 
         // Ajout d'une infobulle pour la réponse du bot une fois que l'utilisateur à fait sa saisie
+        var img = document.getElementById("infoB");
+        img.setAttribute("src", "img/infobulle.png");
+
         // Texte de l'infobulle
-        var txt = document.createTextNode("Texte de l'arbre !");
-        var zoneTxt = document.querySelector(".text-block");
-        var h3 = document.createElement("h3");
-        h3.appendChild(txt);
-        zoneTxt.appendChild(h3);
+        function txtInfobulle(s) {
+          var txt = document.createTextNode(s);
+          var zoneTxt = document.querySelector(".text-block");
+          var h3 = document.createElement("h3");
+
+          h3.textContent=h3_txt;
+          zoneTxt.appendChild(h3);
+        }
+
+        txtInfobulle("Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ");
+
 
         function transformeChaine(s) {
           return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z ]/g, "");; // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre et d'un espace (^, !, /)
