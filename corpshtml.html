@@ -81,6 +81,7 @@
       <h3 id="h3_txt"></h3>
     </div>
   </div>
+  <img id="perso" src="img/perso.png"></img>
 
   <br>
   </br>
@@ -105,14 +106,14 @@
        * LE BOUTON DEVIENT IMPOSSIBLE à selectionner
        */
 
-      /*var count=0;
+      var count=0;
       btn_start.onmousemove = function(e){
           btn_start.value = "Désolé ce bot n'est pas très bien codé ..."
 
           // Donne 7 chances à l'utilisateur pour démarrer le bot
           if (count > 7) {
             btn_start.value = "Vous n'êtes pas bien rapide pour un humain";
-            window.alert("Je vais m'auto-exécuter, attention ne bougez pas la souris et appuyez sur entrer");
+            window.alert("Je vais m'auto-exécuter, attention ne bougez pas la souris du bouton et appuyez sur entrer pour sortir de la pop-up");
           } else {
             // Coodonnées courantes du bouton
             var x = e.pageX - this.offsetLeft;
@@ -126,7 +127,7 @@
           }
 
           count++;
-      }*/
+      }
 
 
       // Quand l'utilisateur choisit de démarrer l'assistant
@@ -302,13 +303,6 @@
           non.setAttribute("type", "button");
           non.setAttribute("value","Non");
 
-
-<<<<<<< HEAD
-
-
-
-    }
-=======
           zoneBouton.appendChild(oui);
           zoneBouton.appendChild(non);
 
@@ -355,16 +349,7 @@
           }
         }
 
-
-
-
       });
-
-
-
-
-
->>>>>>> fca5f98033d91157f8e3d810bcd4f697777be305
       /***********************************************************************************************/
       /*                                  FIN DE LA PARTIE GRAPHIQUE                                 */
       /***********************************************************************************************/
@@ -373,10 +358,10 @@
   </script>
 
   <!-- Fun facts -->
-  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui
+  <!-- TODO SNAKE Quand l'utilisateur saisit le mot jeu ou ennui -->
   <br></br>
   <canvas id='c'></canvas>
-  <script src='JavaScript/snake.js'></script>  -->
+  <script src='JavaScript/snake.js'></script>
 
 
 </body>
