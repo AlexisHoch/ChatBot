@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Chatbot insupportable</title>
 
-  <script type="text/javascript" src="JavaScript/test.js"></script>
-  <script type="text/javascript" src="JavaScript/TAD_Arbre.js"></script>
+  <!-- <script type="text/javascript" src="JavaScript/test.js"></script> -->
+  <script type="text/javascript" src="JavaScript/ArbreSurvie.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -123,7 +123,7 @@
               saisie = transformeChaine(saisie);
 
               console.log("Transformée : " + saisie )
-              getIntention(saisie);  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+              console.log(getIntention(saisie));  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
 
