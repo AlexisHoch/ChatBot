@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Chatbot insupportable</title>
 
-  <script type="text/javascript" src="JavaScript/fonctionsArbres.js"></script>
+  <script type="text/javascript" src="JavaScript/test.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -41,9 +41,7 @@
         font-size: 15px;
       }
 
-      .ListeC{
-        margin-left: 100px;
-      }
+
       /* Zone de texte dans l'infobulle */
      .containeur {
        margin-left: 80px;
@@ -61,7 +59,7 @@
 
      h3 {
        width: 350px;
-       font-size: 14px;
+       font-size: 15px;
      }
 
   </style>
@@ -88,9 +86,11 @@
 
 
   <br><br/>
+  <h2> Recherche Wikipédia : </h2>
   <span id="wikipedia">  <!-- Rechercher sur Wikipédia -->
-    <form id="formwiki" method="get" action="https://fr.wikipedia.org/w/index.php" target="_blank">
-
+    <form method="get" action="https://fr.wikipedia.org/w/index.php">
+      <input type="text" name="search" value="Recherche Wikipédia" onfocus="if(this.value == 'Recherche Wikipédia') { this.value = ''; }">
+      <input type="submit" class="btn btn-success">
     </form>
   </span>
 
@@ -129,7 +129,7 @@
       btn_start.addEventListener("click", function(){
         var champStart  = document.getElementById("presentation");
         champStart.backgroundColor = "red";
-
+        champStart.innerHTML = "Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Avant de commencer, vous devez savoir que même si le divertissement et l'apprentissage scientifique sont au coeur de votre expédition, vous risquez de subir des lésions irréversibles. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
 
         btn_start.parentNode.removeChild(btn_start);  // Supprime le bouton "Démarrer l'assistant"
 
@@ -163,29 +163,7 @@
               saisie = transformeChaine(saisie);
 
               console.log("Transformée : " + saisie )
-              if(getIntention(saisie).name="wikipedia"){
-                var zoneRechercheWiki  = document.getElementById("formwiki");
-
-                var input1 = document.createElement("input");
-                input1.setAttribute("type", "text");
-                input1.setAttribute("name", "search");
-                input1.setAttribute("onfocus", "if(this.value == 'Recherche Wikipédia') { this.value = ''; }");
-
-                var input2 = document.createElement("input");
-                input2.setAttribute("type", "submit");
-                input2.setAttribute("id", "btnwiki");
-                input2.setAttribute("class", "btn btn-success");
-
-                zoneRechercheWiki.appendChild(input1);
-                zoneRechercheWiki.appendChild(input2);
-
-
-                input.addEventListener("click", function(){
-                  zoneRechercheWiki.removeChild(input1);
-                  zoneRechercheWiki.removeChild(input2);
-                });
-
-              }  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+              console.log(getIntention(saisie));  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
 
@@ -208,8 +186,6 @@
 
         // Présentation
         txtInfobulle("Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ");
-        //txtInfobulle("Test de changement de texte ");
-
 
         /* Transforme la saisie de l'utilisateur afin d'avoir une chaîne pure */
         function transformeChaine(s) {
@@ -244,11 +220,7 @@
 
         }
 
-
-
-
-        btn_close.addEventListener("click", function(){
-
+          btn_close.addEventListener("click", function(){
           btn_close.disabled = true;  // Permet de cliquer 1 seule fois sur le Bouton
                                              // Evite un effet reverb sur la musique
 
@@ -273,55 +245,6 @@
         });
 
       });
-
-
-      function BoutonArray(list){
-        for (var i = 0; i < list.length; i++){
-          var l_Choix = document.createElement("button");
-          l_Choix.setAttribute("id",i);
-          l_Choix.setAttribute("Value",List[i].tree.réponse);
-          var lc= document.getElementById("ListeChoix");
-          lc.appendChild(l_Choix);
-        }
-      };
-
-
-      BoutonArray(LancementMeteo.fils);
-
-      function afficheProduits(tabCatalogue){
-        for(var i=0;i< tabCatalogue.length;i++){
-          var section = document.getElementById("catalogue");
-          var article = document.createElement('article');
-          var h4 = document.createElement('h4');
-          h4.innerHTML = tabCatalogue[i].description;
-
-          var p = document.createElement('p');
-          p.setAttribute('class', 'montant');
-          p.innerHTML = tabCatalogue[i].prix + "€";
-
-          var button = document.createElement('button');
-          button.id = "article-"+i;
-          button.innerHTML = "Ajouter l'article";
-
-          section.appendChild(article);
-          article.appendChild(h4);
-          article.appendChild(p);
-          article.appendChild(button);
-
-          /* insérer les produits dans l'HTML, au niveau de la section d'id catalogue */
-        }
-      }
-
-      initialiseProduits(monCatalogue);
-
-    // EXERCICE 3
-    function boutonAjout(boutons) {
-      var boutons = document.querySelectorAll('button');
-
-      for(var i=0;i< boutons.length ;i++){
-        boutons[i].addEventListener('click', ajoutPanier);
-      }
-    }
       /***********************************************************************************************/
       /*                                  FIN DE LA PARTIE GRAPHIQUE                                 */
       /***********************************************************************************************/
