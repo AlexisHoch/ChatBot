@@ -1,0 +1,31 @@
+Agenda:
+
+	Tu as bien demandé ton agenda?
+		-Yes																					                 	             -No
+	Que veux tu savoir?
+  																	                                           Apprends à parler
+		-Combien de kilometre je dois parcourir aujourd'hui?	                    /!\ Retour menu principal
+    	Commence pas à râler qu'il te reste (x) kilomètres encore
+
+		-Qu'en est-il de la maintenance des robots?
+			Ton QrX16 nécessite une maintenance demain sans
+			faute, sinon ton gentil toutou va rester couché; le CH2019 est opérationnel pour un bon moment,
+			après c'est nnormal il fait pas grand chose mais bon il est bien brave.
+
+		-Combien de jours reste t-il avant l'extraction ?
+			Tiens bon il te reste 3 jours, non je plaisante, prends ton mal en patience
+			....
+			(x) jours restants
+
+	...
+	Veux tu des rappels intéressants ?
+			-Yes																					                                                      -No
+	Alors, tu m'obliges à beaucoup trop parler là, t'abuses.									                        Comment ça non? Je fais ce que je veux en fait, c'est MOI le Boss. Alors je vais te raconter à quel point tu es dans la merde
+	...																							                                                       ...
+	Enfin bref, il te reste (x) portions de nourriture, va falloir se calmer sur la bouffe		             idem
+	sinon tu vas mal finir, il reste assez d'eau pour remplir une Bestway Piscine Hors-Sol
+	Acier Hydrium 360 x 120 cm, je sais pas vraiment si ça t'aide à représenter la quantité
+	qu'il te reste mais bon tu vas faire avec.  Faut vraiment
+	que j'arrête de tout commenter comme ça...
+	Dernière chose, ça fait (x) jours que t'as pas vu ta femme ;)
+		/!\ Retour menu principal

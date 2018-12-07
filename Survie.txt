@@ -1,0 +1,36 @@
+Survie:
+	Quel renseignement te faut-il pour éviter d'y passer?
+		-Eau
+			Alors il va falloir se calmer sur la boisson garçon, la sueur ou l'urine est à envisager
+			...
+			Il reste (x) portions d'eau.
+			/!\ Retour menu principal
+
+		-Nourriture
+			En vrai ça dépends, tu as un estomac de quelle taille sur l'échelle de Pierre Menez? Allez je rigole tu l'auras ton Big Mac Billy
+			...
+			Il reste (x) portions de nourritures.
+			/!\ Retour menu principal
+
+		-Batterie
+			Il reste (x) piles LR6 MX1500 Ultra Power Avec contrôle de puissance
+			...
+			Bon, en vrai ça correspond à (x) batteries. Je suis vraiment trop sympa.
+			/!\ Retour menu principal
+
+		-Maintenance
+		    Tu parles de quel automate là?
+				-QrX16
+			Il lui faut une maintenance	demain
+			dernier delai, sinon il va tomber,
+			tu devrais éviter de le surmener le pauvre,
+			si ça continue continue comme ça, il va partir
+			en arrêt maladie le con, ou bien pire encore, bloquer un rond-point.
+			/!\ Retour menu principal
+
+      -CH2019
+      Lequel?
+      ....
+      Ah si je vois du quel tu parles c'est un brave gars, il n'a pas besoin de maintenance pour l'instant.
+      Tu te tais, mais de toi à moi, il n'est pas très grâcieux et accompagnable, mais il est futé et renifle bien les pistes
+      /!\ Retour menu principal

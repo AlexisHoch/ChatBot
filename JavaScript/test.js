@@ -1,30 +1,45 @@
 var meteo = {
   name : "meteo",
-  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "canicule", "degres"],
-  values: [10, 5, 5, 3, 3, 3, 3, 5],
+  keyWords: ["meteo", "temps", "temperature", "chaud", "froid", "prevision", "previsions",  "canicule", "degres", "intemperie"],
+  values: [10, 5, 5, 3, 3, 3, 3, 3, 5, 8],
   tree: [],
   matchWords:0,
 };
 
 var agenda = {
   name : "agenda",
-  keyWords: ["agenda", "planning", "prevision", "maintenance"],
-  values: [10, 10, 3, 3],
+  keyWords: ["agenda", "planning", "prevision","previsions", "maintenance"],
+  values: [10, 10, 3, 3, 3],
   tree: [],
   matchWords:0,
 };
 
 var autonomie = {
   name : "batterie",
-  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot", ""],
-  values: [10, 10, 3, 3],
+  keyWords: ["autonomie", "batterie", "niveau", "maintenance", "robot"],
+  values: [10, 10, 3, 3, 5, ],
+  tree: [],
+  matchWords:0,
+};
+
+var ennui = {
+  name : "ennui",
+  keyWords: ["ennui", "ennuie"],
+  values: [10, 10],
   tree: [],
   matchWords:0,
 };
 
 
+var intentions = [meteo, agenda, autonomie, ennui];
 
-var intentions = [meteo, agenda];
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
 
 //Param : String
 //Fonction permettant de determiner l'intention de l'utilisateur de manière basique
@@ -46,24 +61,22 @@ function getIntention (string) {
   }
 
 
-  var maxIntent=agenda;
-  for(var i = 0; i<intentions.length; i++){
-    if(intentions[i].matchWords>maxIntent.matchWords){
-      maxIntent = intentions[i];
+  var maxIntents =[];
+
+  for(int i =0; i<2; i++){
+
+    var maxIntent=meteo;
+    for(int j =1; j<intentions.length; j++){
+      if(intentions[j].matchWords>maxIntent.matchWords & maxIntents.indexOf(maxIntent)==-1){
+        maxIntent=intentions[j];
       }
-    intentions[i].matchWords=0;
-
     }
+    maxIntents.unshift(maxIntent);
+    maxIntent=meteo
+  }
 
-
-return maxIntent;
+return maxIntents;
 }
 
 
-
-
-
-
 //TESTS//
-console.log(getIntention("Donne moi la meteo de demain"));
-console.log(getIntention("Quel est mon planning de la semain ?"));
