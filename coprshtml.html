@@ -42,6 +42,21 @@
       }
 
 
+      /* Zone de texte dans l'infobulle */
+     .containeur {
+       margin-left: 500px;
+       height:10%;
+       width:30%;
+       position: relative;
+     }
+
+     /* Texte centré dans l'infobulle */
+     .text-block {
+       position: absolute;
+       top: 12%;
+       right: 65%;
+     }
+
   </style>
 
 </head>
@@ -52,10 +67,16 @@
   <input id="ia-start" type="button" class="btn btn-primary" value="Démarrer l'assistant"> <!-- Bouton de démarrage -->
   <p id="presentation"></p>  <!-- Champ texte de présentation pour le bot -->
 
-  <div id="core" >
-    <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
-    <span id="infob"></span>
+  <!-- Zone pour l'infobulle -->
+  <div class="containeur">
+    <img id="infoB" src="img/infobulle.png"></img>
+
+    <div class="text-block">
+    </div>
   </div>
+
+  <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
+
 
   <br><br/>
   <h2> Recherche Wikipédia : </h2>
@@ -72,6 +93,7 @@
       /* Changement des coordonnées du bouton Démarrer quand la souris est dessus
        * LE BOUTON DEVIENT IMPOSSIBLE à selectionner
        */
+       /* TODO
       var count=0;
       btn_start.onmousemove = function(e){
           btn_start.value = "Désolé ce bot n'est pas très bien codé ..."
@@ -94,6 +116,7 @@
 
           count++;
       }
+      */
 
       // Quand l'utilisateur choisit de démarrer l'assistant
       btn_start.addEventListener("click", function(){
@@ -136,19 +159,17 @@
             }
         } );
 
+        // Ajout d'une infobulle pour la réponse du bot une fois que l'utilisateur à fait sa saisie
+        // Texte de l'infobulle
+        var txt = document.createTextNode("Texte de l'arbre !");
+        var zoneTxt = document.querySelector(".text-block");
+        var h3 = document.createElement("h3");
+        h3.appendChild(txt);
+        zoneTxt.appendChild(h3);
+
         function transformeChaine(s) {
-          return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\W/g, ''); // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre (^, !, /)
+          return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z ]/g, "");; // suprime tous les accents, puis tous les caractères spéciaux différents d'une lettre et d'un espace (^, !, /)
         }
-
-        // Ajout d'une infobulle pour la réponse du bot
-        var infob = document.createElement("IMG");
-        infob.setAttribute("id", "infoB");
-        infob.setAttribute("src", "img/infobulle.png");
-        infob.setAttribute("alt", "infobulle (réponse bot)");
-        var btn_fermer_txt = document.createTextNode("Texte de l'arbre !");
-        infob.appendChild(infob);
-        document.getElementById("infob").appendChild(infob);
-
 
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
