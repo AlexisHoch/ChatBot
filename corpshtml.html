@@ -88,11 +88,9 @@
   <input id="ListeChoix" class="ListeC" ></span>
 
   <br><br/>
-  <h2> Recherche Wikipédia : </h2>
   <span id="wikipedia">  <!-- Rechercher sur Wikipédia -->
-    <form method="get" action="https://fr.wikipedia.org/w/index.php">
-      <input type="text" name="search" value="Recherche Wikipédia" onfocus="if(this.value == 'Recherche Wikipédia') { this.value = ''; }">
-      <input type="submit" class="btn btn-success">
+    <form id="formwiki" method="get" action="https://fr.wikipedia.org/w/index.php" target="_blank">
+
     </form>
   </span>
 
@@ -165,7 +163,21 @@
               saisie = transformeChaine(saisie);
 
               console.log("Transformée : " + saisie )
-              console.log(getIntention(saisie));  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
+              if(getIntention(saisie).name="wikipedia"){
+                var zoneRechercheWiki  = document.getElementById("formwiki");
+
+                var input1 = document.createElement("input");
+                input1.setAttribute("type", "text");
+                input1.setAttribute("name", "search");
+                input1.setAttribute("onfocus", "if(this.value == 'Recherche Wikipédia') { this.value = ''; }");
+
+                var input2 = document.createElement("input");
+                input2.setAttribute("type", "submit");
+                input2.setAttribute("class", "btn btn-success");
+
+                zoneRechercheWiki.appendChild(input1);
+                zoneRechercheWiki.appendChild(input2);
+              }  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
 
