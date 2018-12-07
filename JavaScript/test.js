@@ -378,6 +378,9 @@ intentions.remove(indice);
 return listeTrié;
 }
 
-
 //TESTS//
+<<<<<<< HEAD
+=======
+//console.log(meteo.tree);
+>>>>>>> f1a314d728d5f7b6408a5338a83e886052473387
 //console.log(getIntention("test"));

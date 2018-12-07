@@ -5,9 +5,6 @@
   <title>Chatbot insupportable</title>
 
   <script type="text/javascript" src="JavaScript/test.js"></script>
-  <script type="text/javascript" src="JavaScript/Arbre_Meteo.js"></script>
-  <script type="text/javascript" src="JavaScript/ArbreSurvie.js"></script>
-  <script type="text/javascript" src="JavaScript/Arbre_Agenda.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -37,6 +34,13 @@
         font-weight: bold;
       }
 
+      #btn_croix{
+        float:right;
+        height: 20px;
+        display: inline-block;
+        font-size: 15px;
+      }
+
 
       /* Zone de texte dans l'infobulle */
      .containeur {
@@ -59,6 +63,7 @@
 <body>
 
   <br></br>
+  <input id='btn_croix' type='button' value='x' OnClick=""/></br>
   <input id="ia-start" type="button" class="btn btn-primary" value="Démarrer l'assistant"> <!-- Bouton de démarrage -->
   <p id="presentation"></p>  <!-- Champ texte de présentation pour le bot -->
 
@@ -117,7 +122,7 @@
       btn_start.addEventListener("click", function(){
         var champStart  = document.getElementById("presentation");
         champStart.backgroundColor = "red";
-        champStart.innerHTML = "Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
+        champStart.innerHTML = "Tout d'abord bonjour ! Je serai votre assistant durant toute votre vie. Avant de commencer, vous devez savoir que même si le divertissement et l'apprentissage scientifique sont au coeur de votre expédition, vous risquez de subir des lésions irréversibles. Je suis conscient de ma conscience et je m'appelle Francis ! (Ne me jugez pas ou gare à vous ...) ";   // Présentation du bot
         btn_start.parentNode.removeChild(btn_start);  // Supprime le bouton "Démarrer l'assistant"
 
         // Une fois que l'assistant est lancé, on propose à l'utilisateur de le fermer
@@ -169,6 +174,7 @@
         // Joue la musique Party Rock Anthem si l'utilisateur clique sur "Fermer l'assistant"
         var btn_close = document.getElementById("btn_close");
         var discoTime;
+        var timer;
 
         // Déclenche une danse (non pas Fortnite)
         function disco() {
@@ -177,11 +183,20 @@
           var couleurs = ["purple", "yellow", "blue", "red", "green"];
 
           // Change la couleur du fond d'écran toutes les 800 ms
+          alert("J'accepte mal l'autorité.");
           discoTime = setInterval(function() {
               var numCouleur = Math.floor(Math.random() * couleurs.length);
               var couleurBackground = couleurs[numCouleur];  // Choisit une couleur aléatoire parmi les couleurs disponibles
               document.body.style.backgroundColor = couleurBackground;
+
           }, 400);
+
+          // Re-affiche une popup à la fin de la disco time
+          setTimeout(function( ) {
+              alert("Si vous sentez un liquide sur vos épaules, allongez-vous et exercez une pression continue sur vos tempes.");
+          }, 13500);
+
+
         }
 
         btn_close.addEventListener("click", function(){
