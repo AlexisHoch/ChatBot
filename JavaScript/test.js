@@ -18,14 +18,15 @@
 var NonR = {
   père: "Rappels",
   réponse : "NonR",
-  description : "Comment ça non? Je fais ce que je veux en fait, c'est MOI le Boss. ... Enfin bref, il te reste (x) portions de nourriture, va falloir se calmer sur la bouffe sinon tu vas mal finir, il reste assez d'eau pour remplir une Bestway Piscine Hors-Sol Acier Hydrium 360 x 120 cm, je sais pas vraiment si ça t'aide à représenter la quantité qu'il te reste mais bon tu vas faire avec. Faut vraiment que j'arrête de tout commenter comme ça...",
+  description : "Comment ça non? Je fais ce que je veux en fait, c'est MOI le Boss."+"..."+"Enfin bref, il te reste (x) portions de nourriture, va falloir se calmer sur la bouffe sinon tu vas mal finir, il reste assez d'eau pour remplir une Bestway Piscine Hors-Sol Acier Hydrium 360 x 120 cm, je sais pas vraiment si ça t'aide à représenter la quantité qu'il te reste mais bon tu vas faire avec. Faut vraiment que j'arrête de tout commenter comme ça...",
   fils : null};
 
-var OuiR = {
-  père: "Rappels",
-  réponse : "OuiR",
-  description : "Alors, tu m'obliges à beaucoup trop parler là, t'abuses. ... Enfin bref, il te reste (x) portions de nourriture, va falloir se calmer sur la bouffe sinon tu vas mal finir, il reste assez d'eau pour remplir une Bestway Piscine Hors-Sol Acier Hydrium 360 x 120 cm, je sais pas vraiment si ça t'aide à représenter la quantité qu'il te reste mais bon tu vas faire avec. Faut vraiment que j'arrête de tout commenter comme ça...",
-  fils : null};
+  var OuiR = {
+    père: "Rappels",
+    réponse : "OuiR",
+    description : "Alors, tu m'obliges à beaucoup trop parler là, t'abuses."+"..."+" Enfin bref, il te reste (x) portions de nourriture, va falloir se calmer sur la bouffe sinon tu vas mal finir, il reste assez d'eau pour remplir une Bestway Piscine Hors-Sol Acier Hydrium 360 x 120 cm, je sais pas vraiment si ça t'aide à représenter la quantité qu'il te reste mais bon tu vas faire avec. Faut vraiment que j'arrête de tout commenter comme ça...",
+    fils : null};
+
 
 var Rappels = {
   père: "Que veux-tu savoir ?",
@@ -33,11 +34,12 @@ var Rappels = {
   description : "Veux tu des rappels intéressants ?",
   fils : [OuiR,NonR]};
 
-var Patience = {
-  père: "Extraction",
-  réponse : "Patience",
-  description : "Tiens bon il te reste 3 jours, non je plaisante, prends ton mal en patience. ... (x) jours restants",
-  fils : null};
+  var Patience = {
+    père: "Extraction",
+    réponse : "Patience",
+    description : "Tiens bon il te reste 3 jours, non je plaisante, prends ton mal en patience."+"..."+"(x) jours restants",
+    fils : null};
+
 
 var Extraction = {
   père: "Que veux-tu savoir ?",
