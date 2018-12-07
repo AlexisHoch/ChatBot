@@ -87,4 +87,4 @@ return listeTrié;
 
 
 //TESTS//
-console.log(getIntention("maintenance"));
+console.log(getIntention("test"));
