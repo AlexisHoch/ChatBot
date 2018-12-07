@@ -85,7 +85,7 @@
 
   <br></br>
   <span id="champUtilisateur"></span><span id="BoutonFermer"></span>
-  <input id="ListeChoix" class="ListeC" ></span>
+
 
   <br><br/>
   <span id="wikipedia">  <!-- Rechercher sur Wikipédia -->
@@ -173,10 +173,18 @@
 
                 var input2 = document.createElement("input");
                 input2.setAttribute("type", "submit");
+                input2.setAttribute("id", "btnwiki");
                 input2.setAttribute("class", "btn btn-success");
 
                 zoneRechercheWiki.appendChild(input1);
                 zoneRechercheWiki.appendChild(input2);
+
+
+                input.addEventListener("click", function(){
+                  zoneRechercheWiki.removeChild(input1);
+                  zoneRechercheWiki.removeChild(input2);
+                });
+
               }  // Récupère la valeur du champ texte afin d'évaluer la requête de l'utilisateur
             }
         } );
@@ -267,13 +275,13 @@
       });
 
 
-      function BoutonArray(List){
-        for (var i = 0; i < List.length; i++){
-          var L_Choix = document.createElement("button");
-          L_Choix.setAttribute("id",i);
-          L_Choix.setAttribute("Value",List[i].réponse);
-          var Lc= document.getElementById("ListeChoix");
-          Lc.appendChild(L_Choix);
+      function BoutonArray(list){
+        for (var i = 0; i < list.length; i++){
+          var l_Choix = document.createElement("button");
+          l_Choix.setAttribute("id",i);
+          l_Choix.setAttribute("Value",List[i].tree.réponse);
+          var lc= document.getElementById("ListeChoix");
+          lc.appendChild(l_Choix);
         }
       };
 
